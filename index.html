@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 2</title>
+</head>
+<body>
+    <script>
+        let input1 = prompt("Введіть рядок");
+        let letters1 = input1.split('');
+        let input2 = prompt("Введіть рядок");
+        let letters2 = input2.split('');
+
+        while (letters1.length > letters2.length || letters1.length < letters2.length) {
+            alert("Рядки не є анаграмою. Спробуйте ще раз.");
+            input1 = prompt("Введіть рядок");
+            input2 = prompt("Введіть рядок");
+            letters1 = input1.split('');
+            letters2 = input2.split('');
+        }
+
+        for (let letter of letters1) {
+            letter.toLowerCase();
+        }
+
+        for (let letter of letters2) {
+            letter.toLowerCase();
+        }
+
+        letters2.sort((a, b) => {
+            return letters1.indexOf(a) - letters1.indexOf(b);
+        });
+
+        if (letters1[0] !== letters2[0] ) {
+            alert("Рядки не є анаграмою. Спробуйте ще раз.");
+        } else {
+            alert("Рядки є анаграмою.");
+        }
+    </script>
+</body>
+</html>
