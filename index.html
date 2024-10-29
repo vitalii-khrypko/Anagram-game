@@ -9,6 +9,34 @@
 </head>
 <body>
     <script>
+        function anagram() {
+            let firstValue = prompt("Введіть перше значення");
+            let secondValue = prompt("Введіть друге значення");
+
+            let i = 0;
+            while (firstValue === "" || secondValue === "") {
+                i++;
+                alert("Ви ввели порожній рядок. Спробуйте ще раз.");
+                firstValue = prompt("Введіть перше значення");
+                secondValue = prompt("Введіть друге значення");
+            }
+
+            let firstValueSorted = firstValue.toLowerCase().split("").sort().join("");
+            let secondValueSorted = secondValue.toLowerCase().split("").sort().join("");
+
+            console.log(firstValueSorted);
+            console.log(secondValueSorted);
+
+            if (firstValueSorted === secondValueSorted) {
+                alert(`Успіх! Введені вами значення ${firstValue} і ${secondValue} є анаграмою.`);
+                return;
+            } else {
+                alert(`На жаль, введені вами значення ${firstValue} і ${secondValue} не є анаграмою.`);
+                return;
+            }
+        }
+        anagram();
+        /*
         let input1 = prompt("Введіть рядок");
         let letters1 = input1.split('');
         let input2 = prompt("Введіть рядок");
@@ -39,6 +67,7 @@
         } else {
             alert("Рядки є анаграмою.");
         }
+         */
     </script>
 </body>
 </html>
